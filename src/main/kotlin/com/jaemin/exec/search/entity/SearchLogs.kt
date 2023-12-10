@@ -14,8 +14,4 @@ class SearchLogs(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int?
-) {
-    fun SearchLogs() {
-
-    }
-}
+)
