@@ -1,4 +1,4 @@
-package com.jaemin.exec.search.dto
+package com.jaemin.exec.search.infrastructure.dto.naver
 
 data class NaverSearchItems(
     val title: String,
