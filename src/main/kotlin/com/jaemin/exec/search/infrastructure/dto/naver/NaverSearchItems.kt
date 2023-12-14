@@ -1,5 +1,7 @@
 package com.jaemin.exec.search.infrastructure.dto.naver
 
+import com.jaemin.exec.search.presentation.dto.SearchResponseDetail
+
 data class NaverSearchItems(
     val title: String,
     val link: String,
@@ -10,4 +12,15 @@ data class NaverSearchItems(
     val roadAddress: String,
     val mapx: Int,
     val mapy: Int
-)
+){
+    fun toSearchResponseDetail(): SearchResponseDetail{
+        return SearchResponseDetail(
+            title = title,
+            link= link,
+            category = category,
+            address = address,
+            roadAddress = roadAddress,
+            telephone = telephone
+        )
+    }
+}

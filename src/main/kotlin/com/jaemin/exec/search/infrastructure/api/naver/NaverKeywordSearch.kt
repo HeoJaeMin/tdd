@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
+import org.yaml.snakeyaml.util.UriEncoder
 import java.net.URI
 
 @Service
@@ -40,9 +41,9 @@ class NaverKeywordSearch : NaverApiFactory() {
             )
         }
 
-        val contents = response.body
+        val contents : NaverSearch? = response.body;
 
 
-        return ResponseEntity.status(response.statusCode).body(null)
+        return ResponseEntity.status(response.statusCode).body(contents!!.toSearchResponse())
     }
 }

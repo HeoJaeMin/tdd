@@ -9,10 +9,10 @@ data class SearchResponse(
     val errorMessage: String?
 ) {
     constructor(
-        total: Int,
-        pageNumber: Int,
-        pageSize: Int,
-        isLast: Boolean,
+        total: Int?,
+        pageNumber: Int?,
+        pageSize: Int?,
+        isLast: Boolean?,
         content: List<SearchResponseDetail>
     ) : this(total, pageNumber, pageSize, isLast, content, null)
 
