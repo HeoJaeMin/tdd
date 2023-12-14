@@ -3,23 +3,17 @@ package com.jaemin.exec.search.infrastructure.api.factory
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
-import org.springframework.stereotype.Component
 
-@Component
-class NaverApiFactory : ApiFactory {
+open class KakaoApiFactory : ApiFactory {
 
     companion object {
-        const val CLIENT_ID_KEY = "X-Naver-Client-Id"
-        const val CLIENT_ID_VALUE = "yZl5YZH4Hzz9A1oGsCKl"
-        const val CLIENT_SECRET_KEY = "X-Naver-Client-Secret"
-        const val CLIENT_SECRET_VALUE = "cBeXFVmzlW"
+        const val REST_API_KEY = "f4ec023718bc5ed2adad388e02f9238c"
     }
 
     override fun setAuth(): HttpHeaders {
         val headers = HttpHeaders()
 
-        headers.set(CLIENT_ID_KEY, CLIENT_ID_VALUE)
-        headers.set(CLIENT_SECRET_KEY, CLIENT_SECRET_VALUE)
+        headers.set(HttpHeaders.AUTHORIZATION, "KakaoAK $REST_API_KEY")
         headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON.toString())
         headers.set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
 

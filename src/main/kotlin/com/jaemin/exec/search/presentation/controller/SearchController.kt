@@ -8,4 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/search")
 class SearchController(
     private val searchService: SearchService
-)
+) {
+//    @GetMapping
+//    fun search(
+//        @RequestParam keyword: String,
+//        @RequestParam sort: String,
+//        @RequestParam page: Int,
+//        @RequestParam display: Int
+//    ): ResponseEntity<SearchResponse> {
+//        return searchService.search(
+//            SearchRequest(
+//                keyword = keyword,
+//                sort = SearchSort.valueOf(sort),
+//                page = page,
+//                display = display
+//            )
+//        )
+//    }
+}
