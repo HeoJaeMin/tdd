@@ -1,4 +1,4 @@
-package com.jaemin.exec.search.domain.table
+package com.jaemin.exec.search.infrastructure.entity
 
 import jakarta.persistence.*
 
