@@ -1,4 +1,4 @@
-package com.jaemin.exec.search.infrastructure.dto.naver
+package com.jaemin.exec.search.domain.dto.naver
 
 import com.jaemin.exec.search.presentation.dto.SearchResponseDetail
 

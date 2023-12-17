@@ -1,4 +1,4 @@
-package com.jaemin.exec.search.infrastructure.dto.kakao
+package com.jaemin.exec.search.domain.dto.kakao
 
 data class KakaoMetaSameName(
     val region: List<String>,
