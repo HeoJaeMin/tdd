@@ -1,11 +1,11 @@
-package com.jaemin.exec.search.domain.api.util
+package com.jaemin.exec.core.util
 
 import org.springframework.stereotype.Component
 import org.yaml.snakeyaml.util.UriEncoder
 import java.net.URI
 
 @Component
-class ApiRequestUtil{
+class ApiRequestUtil {
 
     fun setRequestParams(url: String, requestParams: Map<String, String>?): URI {
 

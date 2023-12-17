@@ -1,10 +1,10 @@
 package com.jaemin.exec.search.application
 
+import com.jaemin.exec.core.response.ResponseTemplate
 import com.jaemin.exec.search.domain.api.naver.NaverKeywordSearch
 import com.jaemin.exec.search.domain.repository.jpa.SearchLogsRepository
 import com.jaemin.exec.search.presentation.dto.SearchRequest
 import com.jaemin.exec.search.presentation.dto.SearchResponse
-import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 @Service
@@ -12,15 +12,18 @@ class SearchService(
     private val searchLogsRepository: SearchLogsRepository,
     private val naverKeywordSearch: NaverKeywordSearch
 ) {
-    fun search(searchRequest: SearchRequest): ResponseEntity<SearchResponse>? {
-        var result: ResponseEntity<SearchResponse> = naverKeywordSearch.search(searchRequest)
+    fun search(searchRequest: SearchRequest): ResponseTemplate<SearchResponse>? {
+        var result: ResponseTemplate<SearchResponse> = naverKeywordSearch.search(searchRequest)
 
-        if (result.statusCode.value() != 200) {
+        if (!result.success) {
             //카카오
             print("Search Kakao")
-            if (result.statusCode.value() != 200) {
+            if (!result.success) {
                 print("Search Database")
-                result = ResponseEntity.ok(null)
+                result = ResponseTemplate(
+                    true,
+                    null
+                )
             }
 
         }
