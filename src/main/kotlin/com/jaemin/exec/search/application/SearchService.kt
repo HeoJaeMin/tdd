@@ -1,7 +1,7 @@
 package com.jaemin.exec.search.application
 
+import com.jaemin.exec.search.domain.api.naver.NaverKeywordSearch
 import com.jaemin.exec.search.domain.repository.jpa.SearchLogsRepository
-import com.jaemin.exec.search.infrastructure.api.naver.NaverKeywordSearch
 import com.jaemin.exec.search.presentation.dto.SearchRequest
 import com.jaemin.exec.search.presentation.dto.SearchResponse
 import org.springframework.http.ResponseEntity
