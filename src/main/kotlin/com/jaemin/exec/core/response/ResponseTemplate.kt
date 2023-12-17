@@ -9,4 +9,5 @@ class ResponseTemplate<T>(
 ) {
     constructor(success: Boolean, result: T?) : this(success, result, null)
     constructor(success: Boolean, errorDetails: ErrorDetails) : this(success, null, errorDetails)
+
 }
