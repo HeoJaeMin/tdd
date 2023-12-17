@@ -25,7 +25,6 @@ class SearchService(
                     null
                 )
             }
-
         }
 
         return result
