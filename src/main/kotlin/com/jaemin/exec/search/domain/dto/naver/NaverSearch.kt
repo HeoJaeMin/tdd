@@ -3,9 +3,6 @@ package com.jaemin.exec.search.domain.dto.naver
 import com.jaemin.exec.search.presentation.dto.SearchResponse
 import com.jaemin.exec.search.presentation.dto.SearchResponseDetail
 import java.util.*
-import java.util.stream.Collectors
-import kotlin.collections.ArrayList
-import kotlin.reflect.KFunction1
 
 data class NaverSearch(
     val total: Int?,
@@ -13,23 +10,28 @@ data class NaverSearch(
     val display: Int?,
     val items: MutableList<NaverSearchItems>?,
     val errorMessage: String?
-){
-    fun toSearchResponse(): SearchResponse
-    {
+) {
+    fun toSearchResponse(): SearchResponse {
 
-        val content =  ArrayList<SearchResponseDetail>()
+        var content: ArrayList<SearchResponseDetail> = ArrayList<SearchResponseDetail>()
 
-        for(a in items!!){
-            content.add(
-                a.toSearchResponseDetail()
-            )
+        if (Objects.isNull(items)) {
+            content = ArrayList()
+        } else {
+            for (a in items!!) {
+                content.add(
+                    a.toSearchResponseDetail()
+                )
+            }
         }
+
+
 
         return SearchResponse(
             total = total,
             pageNumber = start,
             pageSize = display,
-            isLast = if(!Objects.isNull(display) && !Objects.isNull(total)) display!!.div(total!!)+1==start else true,
+            isLast = if (!Objects.isNull(display) && !Objects.isNull(total)) display!!.div(total!!) + 1 == start else true,
             content = content
         )
     }

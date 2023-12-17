@@ -14,7 +14,7 @@ class NaverSearchTest {
             null,
             null,
             null,
-            ArrayList(),
+            null,
             null
         )
 
