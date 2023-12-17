@@ -25,8 +25,6 @@ data class NaverSearch(
             }
         }
 
-
-
         return SearchResponse(
             total = total,
             pageNumber = start,
