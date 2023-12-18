@@ -34,9 +34,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("org.slf4j:slf4j-api:2.0.7")
 
     //testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.mockk:mockk:1.13.8")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.9.21")
+
 
     //health check
     implementation("org.springframework.boot:spring-boot-starter-actuator")

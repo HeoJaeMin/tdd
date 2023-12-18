@@ -52,9 +52,9 @@ class SearchRequestTest {
     fun searchRequestValidateTest4() {
         val searchRequest = SearchRequest(
             sort = SearchSort.COMMENT,
-            page = 0,
+            page = 1,
             keyword = "주식",
-            display = 50
+            display = 0
         )
 
         assertThrows<RuntimeException> { searchRequest.validate() }

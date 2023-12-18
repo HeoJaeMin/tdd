@@ -14,7 +14,7 @@ class NaverKeywordSearchTest {
     @Autowired
     private lateinit var naverKeywordSearch: NaverKeywordSearch
 
-    @DisplayName("응답값이 404 Not_Found 일 경우 오류를 반환한다.")
+    @DisplayName("응답값이 404 Not_Found 또는 401 Un_Authorized 일 경우 오류를 반환한다.")
     @Test
     fun naverKeywordSearchTest1() {
         val response = naverKeywordSearch.search(
@@ -26,6 +26,6 @@ class NaverKeywordSearchTest {
             )
         )
 
-        assert(response.statusCode != HttpStatus.NOT_FOUND)
+        assert(response.statusCode != HttpStatus.NOT_FOUND && response.statusCode != HttpStatus.UNAUTHORIZED)
     }
 }
