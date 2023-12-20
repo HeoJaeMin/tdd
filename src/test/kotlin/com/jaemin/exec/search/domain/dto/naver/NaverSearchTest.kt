@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 class NaverSearchTest {
 
-    @DisplayName("이렇게 해도 오류 안나나?")
+    @DisplayName("네이버 키워드 응답 mapper")
     @Test
     fun naverSearchTest1() {
         val naverSearch = mockk<NaverSearch>(relaxed = true)

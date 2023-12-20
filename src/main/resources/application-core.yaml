@@ -7,3 +7,13 @@ management:
     web:
       exposure:
         include: health,info,beans,conditions
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      testClient:
+        ringBufferSizeInClosedState: 10
+        ringBufferSizeInHalfOpenState: 30
+        waitDurationInOpenState: 10000ms
+        failureRateThreshold: 20
+        registerHealthIndicator: false

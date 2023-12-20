@@ -57,6 +57,9 @@ dependencies {
     kapt("com.querydsl:querydsl-apt:5.0.0:jakarta")
     kapt("jakarta.annotation:jakarta.annotation-api")
     kapt("jakarta.persistence:jakarta.persistence-api")
+
+    //circuit breaker
+    implementation("io.github.resilience4j:resilience4j-spring-boot2:1.7.0")
 }
 
 tasks.withType<KotlinCompile> {
