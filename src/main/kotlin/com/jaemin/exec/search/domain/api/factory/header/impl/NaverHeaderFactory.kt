@@ -14,7 +14,9 @@ class NaverHeaderFactory : ClientHeaderFactory {
         const val CLIENT_ID_KEY = "X-Naver-Client-Id"
         const val CLIENT_ID_VALUE = "yZl5YZH4Hzz9A1oGsCKl"
         const val CLIENT_SECRET_KEY = "X-Naver-Client-Secret"
-        const val CLIENT_SECRET_VALUE = "cBeXFVmzlW"
+
+        //const val CLIENT_SECRET_VALUE = "cBeXFVmzlW"
+        const val CLIENT_SECRET_VALUE = "cBeXFVmzlWz"
     }
 
     override fun createHeader(): List<ClientHttpRequestInterceptor> {
@@ -22,14 +24,15 @@ class NaverHeaderFactory : ClientHeaderFactory {
 
         val headerParams = HashMap<String, String>()
 
-        headerParams[CLIENT_ID_KEY]= CLIENT_ID_VALUE
-        headerParams[CLIENT_SECRET_KEY]= CLIENT_SECRET_VALUE
-        headerParams[HttpHeaders.ACCEPT]= MediaType.APPLICATION_JSON.toString()
-        headerParams[HttpHeaders.CONTENT_TYPE]= MediaType.APPLICATION_JSON.toString()
+        headerParams[CLIENT_ID_KEY] = CLIENT_ID_VALUE
+        headerParams[CLIENT_SECRET_KEY] = CLIENT_SECRET_VALUE
+        headerParams[HttpHeaders.ACCEPT] = MediaType.APPLICATION_JSON.toString()
+        headerParams[HttpHeaders.CONTENT_TYPE] = MediaType.APPLICATION_JSON.toString()
 
         headerParams.entries.forEach {
             interceptors.add(
-                HttpHeaderInterceptor(it.key, it.value
+                HttpHeaderInterceptor(
+                    it.key, it.value
                 )
             )
         }

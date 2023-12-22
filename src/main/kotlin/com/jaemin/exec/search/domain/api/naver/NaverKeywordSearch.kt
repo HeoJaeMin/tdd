@@ -5,7 +5,6 @@ import com.jaemin.exec.search.domain.api.template.impl.NaverApiTemplate
 import com.jaemin.exec.search.domain.dto.naver.NaverSearch
 import com.jaemin.exec.search.presentation.dto.SearchRequest
 import com.jaemin.exec.search.presentation.dto.SearchResponse
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.springframework.stereotype.Service
 
 @Service
@@ -18,7 +17,6 @@ class NaverKeywordSearch(
     }
 
 
-    @CircuitBreaker(name = "naverKeywordSearch", fallbackMethod = "kakaoKeywordSearch")
     fun search(searchRequest: SearchRequest): ResponseTemplate<SearchResponse> {
         val requestParams = HashMap<String, String>()
 

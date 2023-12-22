@@ -5,7 +5,6 @@ import com.jaemin.exec.search.domain.api.template.impl.KakaoApiTemplate
 import com.jaemin.exec.search.domain.dto.kakao.KakaoSearch
 import com.jaemin.exec.search.presentation.dto.SearchRequest
 import com.jaemin.exec.search.presentation.dto.SearchResponse
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import org.springframework.stereotype.Service
 
 @Service
@@ -16,7 +15,7 @@ class KakaoKeywordSearch(
         const val BASE_URL = "https://dapi.kakao.com/v2/local/search/keyword.json"
     }
 
-    @CircuitBreaker(name = "kakaoKeywordSearch", fallbackMethod = "databaseKeywordSearch")
+
     fun search(searchRequest: SearchRequest): ResponseTemplate<SearchResponse> {
         val requestParams = HashMap<String, String>()
 
