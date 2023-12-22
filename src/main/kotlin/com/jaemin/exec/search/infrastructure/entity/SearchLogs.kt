@@ -8,5 +8,5 @@ class SearchLogs(
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int?,
-    val name: String
+    val name: String,
 )

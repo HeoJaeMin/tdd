@@ -9,12 +9,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class KakaoKeywordSearch(
-    private val kakaoApiTemplate: KakaoApiTemplate<KakaoSearch>
+    private val kakaoApiTemplate: KakaoApiTemplate<KakaoSearch>,
 ) {
     companion object {
         const val BASE_URL = "https://dapi.kakao.com/v2/local/search/keyword.json"
     }
-
 
     fun search(searchRequest: SearchRequest): ResponseTemplate<SearchResponse> {
         val requestParams = HashMap<String, String>()

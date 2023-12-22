@@ -9,13 +9,12 @@ import org.springframework.stereotype.Service
 
 @Service
 class NaverKeywordSearch(
-    private val naverApiTemplate: NaverApiTemplate<NaverSearch>
+    private val naverApiTemplate: NaverApiTemplate<NaverSearch>,
 ) {
 
     companion object {
         const val BASE_URL = "https://openapi.naver.com/v1/search/local.json"
     }
-
 
     fun search(searchRequest: SearchRequest): ResponseTemplate<SearchResponse> {
         val requestParams = HashMap<String, String>()

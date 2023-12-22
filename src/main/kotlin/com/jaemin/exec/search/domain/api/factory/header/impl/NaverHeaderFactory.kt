@@ -14,9 +14,7 @@ class NaverHeaderFactory : ClientHeaderFactory {
         const val CLIENT_ID_KEY = "X-Naver-Client-Id"
         const val CLIENT_ID_VALUE = "yZl5YZH4Hzz9A1oGsCKl"
         const val CLIENT_SECRET_KEY = "X-Naver-Client-Secret"
-
-        //const val CLIENT_SECRET_VALUE = "cBeXFVmzlW"
-        const val CLIENT_SECRET_VALUE = "cBeXFVmzlWz"
+        const val CLIENT_SECRET_VALUE = "cBeXFVmzlW"
     }
 
     override fun createHeader(): List<ClientHttpRequestInterceptor> {
