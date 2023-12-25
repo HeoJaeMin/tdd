@@ -1,7 +1,7 @@
 package com.jaemin.exec.search.application
 
-import com.jaemin.exec.search.presentation.dto.SearchRequest
-import com.jaemin.exec.search.presentation.dto.SearchSort
+import com.jaemin.exec.search.presentation.SearchRequest
+import com.jaemin.exec.search.presentation.SearchSort
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

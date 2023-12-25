@@ -59,7 +59,8 @@ dependencies {
     kapt("jakarta.persistence:jakarta.persistence-api")
 
     //circuit breaker
-    implementation("io.github.resilience4j:resilience4j-spring-boot2:1.7.0")
+    implementation("io.github.resilience4j:resilience4j-spring-boot2:2.2.0")
+    implementation("io.github.resilience4j:resilience4j-all:2.2.0")
 }
 
 tasks.withType<KotlinCompile> {
