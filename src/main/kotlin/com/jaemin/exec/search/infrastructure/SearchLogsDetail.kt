@@ -5,23 +5,40 @@ import jakarta.persistence.*
 @Entity
 class SearchLogsDetail(
     @Id
-    @Column(name="detailId")
+    @Column(name = "detailId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val detailId: Int?,
-    @Column(name="logId")
-    val logId: Int,
-    @Column(name="title")
+    @Column(name = "logId")
+    var logId: Int?,
+    @Column(name = "title")
     val title: String,
-    @Column(name="link")
-    val lint: String,
-    @Column(name="category")
+    @Column(name = "link")
+    val link: String,
+    @Column(name = "category")
     val category: String,
-    @Column(name="address")
+    @Column(name = "address")
     val address: String,
-    @Column(name="roadAddress")
+    @Column(name = "roadAddress")
     val roadAddress: String,
-    @Column(name="telephone")
-    val telephone: String
+    @Column(name = "telephone")
+    val telephone: String,
 ) {
-
+    constructor(
+        logId: Int?,
+        title: String,
+        link: String,
+        category: String,
+        address: String,
+        roadAddress: String,
+        telephone: String,
+    ) : this(
+        null,
+        logId,
+        title,
+        link,
+        category,
+        address,
+        roadAddress,
+        telephone
+    )
 }

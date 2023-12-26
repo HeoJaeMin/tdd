@@ -10,10 +10,17 @@ management:
 
 resilience4j:
   circuitbreaker:
+    configs:
+      default:
+        failureRateThreshold: 50
+        slowCallRateThreshold: 100
+        slowCallDurationThreshold: 60000
+        permittedNumberOfCallsInHalfOpenState: 4
+        maxWaitDurationInHalfOpenState: 1000
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        waitDurationInOpenState: 10000
     instances:
-      testClient:
-        ringBufferSizeInClosedState: 10
-        ringBufferSizeInHalfOpenState: 30
-        waitDurationInOpenState: 10000ms
-        failureRateThreshold: 20
-        registerHealthIndicator: false
+      customCircuitBreaker:
+        baseConfig: default

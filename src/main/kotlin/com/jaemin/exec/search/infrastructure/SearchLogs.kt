@@ -8,12 +8,21 @@ class SearchLogs(
     @Column(name = "logId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val logId: Int?,
-    @Column(name="keyword")
+    @Column(name = "keyword")
     val keyword: String,
-    @Column(name="total")
+    @Column(name = "total")
     val total: Int,
-    @Column(name="pageNumber")
+    @Column(name = "pageNumber")
     val pageNumber: Int,
-    @Column(name="isLast")
-    val isLast: String
-)
+    @Column(name = "isLast")
+    val isLast: String,
+) {
+    constructor(keyword: String, total: Int, pageNumber: Int, isLast: String) : this(
+        null,
+        keyword,
+        total,
+        pageNumber,
+        isLast
+    )
+
+}

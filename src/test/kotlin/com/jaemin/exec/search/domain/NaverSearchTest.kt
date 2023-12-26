@@ -1,6 +1,5 @@
 package com.jaemin.exec.search.domain
 
-import com.jaemin.exec.search.domain.NaverSearch
 import io.mockk.junit5.MockKExtension
 import io.mockk.mockk
 import org.junit.jupiter.api.DisplayName
@@ -16,14 +15,6 @@ class NaverSearchTest {
     @Test
     fun naverSearchTest1() {
         val naverSearch = mockk<NaverSearch>(relaxed = true)
-//            NaverSearch(
-//                null,
-//                null,
-//                null,
-//                null,
-//                null
-//            )
-
         naverSearch.toSearchResponse()
     }
 }
