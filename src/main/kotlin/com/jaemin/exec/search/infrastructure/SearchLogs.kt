@@ -1,6 +1,7 @@
 package com.jaemin.exec.search.infrastructure
 
 import jakarta.persistence.*
+import java.time.LocalDateTime
 
 @Entity
 class SearchLogs(
@@ -16,13 +17,16 @@ class SearchLogs(
     val pageNumber: Int,
     @Column(name = "isLast")
     val isLast: String,
+    @Column(name = "searchAt")
+    val searchAt: LocalDateTime,
 ) {
-    constructor(keyword: String, total: Int, pageNumber: Int, isLast: String) : this(
+    constructor(keyword: String, total: Int, pageNumber: Int, isLast: String, searchAt: LocalDateTime) : this(
         null,
         keyword,
         total,
         pageNumber,
-        isLast
+        isLast,
+        searchAt
     )
 
 }

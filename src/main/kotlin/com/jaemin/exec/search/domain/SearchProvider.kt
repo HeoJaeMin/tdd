@@ -10,15 +10,24 @@ import org.springframework.stereotype.Component
 class SearchProvider(
     private val naverKeywordSearch: NaverKeywordSearch,
     private val kakaoKeywordSearch: KakaoKeywordSearch,
+    private val searchLogsProvider: SearchLogsProvider,
 ) {
 
-    @CircuitBreaker(name = "search", fallbackMethod = "naverFallback")
+    @CircuitBreaker(name = "search", fallbackMethod = "kakaoFallback")
     fun search(searchRequest: SearchRequest): ResponseTemplate<SearchResponse> {
         return naverKeywordSearch.search(searchRequest)
     }
 
-    @CircuitBreaker(name = "naverFallback")
-    fun naverFallback(searchRequest: SearchRequest, e: Throwable): ResponseTemplate<SearchResponse> {
+    @CircuitBreaker(name = "kakaoFallback", fallbackMethod = "databaseFallback")
+    fun kakaoFallback(searchRequest: SearchRequest, e: Throwable): ResponseTemplate<SearchResponse> {
         return kakaoKeywordSearch.search(searchRequest)
+    }
+
+    @CircuitBreaker(name = "databaseFallback")
+    fun databaseFallback(searchRequest: SearchRequest, e: Throwable): ResponseTemplate<SearchResponse> {
+        return ResponseTemplate(
+            true,
+            searchLogsProvider.findSearchResultFromLog(searchRequest)
+        )
     }
 }

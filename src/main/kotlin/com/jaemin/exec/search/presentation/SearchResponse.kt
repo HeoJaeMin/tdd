@@ -2,6 +2,7 @@ package com.jaemin.exec.search.presentation
 
 import com.jaemin.exec.search.infrastructure.SearchLogs
 import com.jaemin.exec.search.infrastructure.SearchLogsInfo
+import java.time.LocalDateTime
 
 data class SearchResponse(
     val total: Int,
@@ -17,7 +18,8 @@ data class SearchResponse(
                 keyword = request.keyword,
                 total = this.total,
                 pageNumber = this.pageNumber,
-                isLast = if (this.isLast) "Y" else "N"
+                isLast = if (this.isLast) "Y" else "N",
+                searchAt = LocalDateTime.now()
             ),
             content.stream().map { it.convert() }.toList()
         )
