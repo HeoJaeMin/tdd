@@ -13,7 +13,8 @@ env:
 #  CONTAINER_NAME: hanghae-dev-container
 
 permissions:
-  contents: read
+  contents: write
+  id-token: write
 
 jobs:
   deploy:
