@@ -4,6 +4,10 @@ ARG BRANCH
 
 ARG PORT
 
+RUN echo "VALUE OF BRANCH: ${BRANCH}"
+
+RUN echo "VALUE OF PORT: ${PORT}"
+
 WORKDIR /app
 
 COPY build.gradle.kts settings.gradle.kts gradle gradlew gradlew.bat /app/
