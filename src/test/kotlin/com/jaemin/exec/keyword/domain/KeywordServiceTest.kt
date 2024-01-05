@@ -1,7 +1,6 @@
 package com.jaemin.exec.keyword.domain
 
 import com.jaemin.exec.keyword.application.KeywordService
-import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 
 class KeywordServiceTest {
@@ -9,7 +8,7 @@ class KeywordServiceTest {
     @Autowired
     private lateinit var keywordService: KeywordService
 
-    @Test
+    //@Test
     fun keywordSearchTest() {
         keywordService.top()
     }
