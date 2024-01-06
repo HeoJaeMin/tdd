@@ -6,8 +6,6 @@ ARG PORT
 
 RUN echo "VALUE OF BRANCH: ${BRANCH}"
 
-RUN echo "VALUE OF PORT: ${PORT}"
-
 WORKDIR /app
 
 COPY build.gradle.kts settings.gradle.kts gradle gradlew gradlew.bat /app/
@@ -18,4 +16,4 @@ RUN gradle clean build --no-daemon
 
 EXPOSE $PORT
 
-ENTRYPOINT ["java", "-jar", "/app/build/libs/exec-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=core,${BRANCH}"]
+ENTRYPOINT ["java", "-jar", "/app/build/libs/exec-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=core,$BRANCH"]
