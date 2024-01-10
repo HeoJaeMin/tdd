@@ -36,6 +36,12 @@ class CustomSearchLogsRepositoryImpl(
     }
 
     override fun findSearchResultFromLog(request: SearchRequest): SearchResponse {
-        TODO("Not yet implemented")
+        return SearchResponse(
+            total = 0,
+            pageNumber = 1,
+            pageSize = request.display,
+            isLast = true,
+            content = ArrayList()
+        )
     }
 }

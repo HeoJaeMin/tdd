@@ -24,7 +24,7 @@ class SearchProvider(
     }
 
     @CircuitBreaker(name = "databaseFallback")
-    fun databaseFallback(searchRequest: SearchRequest, e: Throwable): ResponseTemplate<SearchResponse> {
+    fun databaseFallback(searchRequest: SearchRequest, e1: Throwable, e2: Throwable): ResponseTemplate<SearchResponse> {
         return ResponseTemplate(
             true,
             searchLogsProvider.findSearchResultFromLog(searchRequest)
